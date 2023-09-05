@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원페이지 사이트 스크롤링 효과</title>
+    <link rel="stylesheet" href="css/style_scrollToandWheel.css">
+</head>
+<body>
+    <header>
+        <div id="header_title">
+            <h1>어디까지 가봤니?</h1>
+        </div>
+        <nav id="header_gnb">
+            <ul>
+                <li><a href="#section_eu">Europe</a></li>
+                <li><a href="#section_us">United States</a></li>
+                <li><a href="#section_ch">China</a></li>
+                <li><a href="#section_jp">Japan</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--<div id="contents">-->
+    <section id="section_eu"  class="sections"><h2>Europe</h2></section>
+    <section id="section_us" class="sections"><h2>United States</h2></section>
+    <section id="section_ch" class="sections"><h2>China</h2></section>
+    <section id="section_jp" class="sections"><h2>Japan</h2></section>
+    <!--</div>-->
+    <footer>
+        © 2021 by Sun-hee Lee. For more Information, contact sunnylee@yj.or.kr 
+    </footer>
+    <!-- 페이지 Top 버튼 -->
+    <nav id="top_btn">
+        <a href="#header_title">Top</a>
+    </nav>
+
+    <!--스크롤 기능을 위한 자바스크립트 제이쿼리 삽입 -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+
+    <!-- 스크롤 기능을 위한 자바스크립트 제이쿼리 실행 -->
+    <script>
+        $(function(){
+            $('nav a').click(function(e){
+                $.scrollTo(this.hash || 0, 500); /* 속도 절, 숫자가 작을수록 빠름 */
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    <!--휠 이벤트로 섹션 하나씩 이동하는 자바스크립트 제이쿼리 실행 -->
+    <script src="js/wheel.js"></script>
+    <!--<script type="text/javascript">
+        window.onload = function () {
+            var elm = ".sections";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                    
+                    // 화면 이동
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 600, complete: function () {
+                        }
+                    });
+                });
+            });
+        }
+    </script>-->
+</body>
+</html>

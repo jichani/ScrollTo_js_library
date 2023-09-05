@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가변 이미지</title>
+    <style>
+        img {width:100%;}
+    </style>
+</head>
+<body>
+    <picture>
+        <source srcset="images/shop-large.jpg" media="(min-width:1024px)">
+        <source srcset="./images/shop-medium.jpg" media="(min-width:768px)">
+        <source srcset="./images/shop-small.jpg" media="(min-width:320px)">
+        <img src="images/shop.jpg" alt="">
+    </picture>  
+</body>
+</html>

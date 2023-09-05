@@ -1,0 +1,66 @@
+/* 초기화 스타일 */
+* {margin:0;padding:0;box-sizing:border-box;}
+li {list-style: none;}
+a {text-decoration: none; color:#fff;}
+
+header {height:130px; background:gray;}
+/* 헤더 타이틀 */
+header #header_title {
+    text-align: center; background:#fff;
+    line-height: 70px;
+}
+header nav {background:#ff9100;}
+header nav ul {display:flex; height:60px;
+                width:80%;margin:0 auto; 
+                justify-content: space-between;}
+header nav ul li {
+    width:25%;
+    text-align:center; 
+    line-height: 60px; 
+    font-weight: bold;font-size:1em;
+}
+
+/* section 스타일 */
+section {
+    height:1000px;
+}
+#section_eu {
+    background:url("../images/eu.jpg") center;
+    background-size:cover;
+}
+#section_us {
+    background:url("../images/us.jpg") center;
+    background-size:cover;
+}
+#section_ch {
+    background:url("../images/ch.jpg") center;
+    background-size:cover;
+}
+#section_jp {
+    background:url("../images/jp.jpg") center;
+    background-size:cover;
+}
+
+section h2 {
+    text-align: center;
+    line-height: 1000px;
+    font-size:4em;
+    color:#fff;
+    text-shadow:3px 3px 2px rgba( 0, 0, 0, 0.3 ); /* 투명 그림자 적용 */
+}
+
+/* footer */
+footer {background:#ff9100;
+        text-align: center; ;line-height: 70px; color:#fff;
+} 
+
+/* 페이지 top 부분 */ 
+#top_btn {width:80px;
+    background:rgba( 255, 255, 255, 0.3 ); /* 투명 배경 */ 
+    position:fixed;right:0px;bottom:100px;  /* 위치를 절대값으로 고정 */
+    text-align: center;
+    transform:rotate(-90deg);/* 반시계 방향 90도 회전 */
+    -webkit-transform:rotate(-90deg); /* 공급업체 접두어로 벤더프리픽스 적용 */
+    -ms-transform:rotate(-90deg);
+    border-radius: 10px; /* 모서리가 둥근 사각형, 박스 테두리 지정 */
+}
